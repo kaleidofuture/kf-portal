@@ -1,16 +1,23 @@
 /* ========================================
    17 Apps Experiment — Portal
-   KaleidoFuture Dark Theme
+   KaleidoFuture White Theme
    ======================================== */
 
 :root {
-  --bg: #0e1117;
-  --bg-card: #1a1f2e;
-  --bg-card-hover: #222838;
-  --text: #f0f3f6;
-  --text-muted: #9ca3af;
+  --bg: #ffffff;
+  --bg-alt: #f7f8fa;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f0fdfa;
+  --text: #1a365d;
+  --text-muted: #64748b;
+  --text-faint: #94a3b8;
   --accent: #0d9488;
   --accent-light: #14b8a6;
+  --accent-subtle: rgba(13, 148, 136, 0.08);
+  --border: rgba(13, 148, 136, 0.15);
+  --border-light: #e2e8f0;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-hover: 0 10px 25px rgba(13, 148, 136, 0.1), 0 4px 10px rgba(0, 0, 0, 0.04);
   --font: 'Space Grotesk', 'Noto Sans JP', sans-serif;
 }
 
@@ -52,8 +59,9 @@ a {
 
 .hero {
   position: relative;
-  padding: 64px 0 48px;
+  padding: 48px 0 40px;
   text-align: center;
+  background: var(--bg);
 }
 
 .hero::before {
@@ -70,26 +78,29 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .hero__logo {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--accent-light);
-  letter-spacing: 2px;
+  height: 48px;
+}
+
+.hero__logo img {
+  height: 100%;
+  width: auto;
 }
 
 #lang-select {
   font-family: var(--font);
   font-size: 14px;
-  background: var(--bg-card);
+  background: var(--bg);
   color: var(--text);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-light);
   border-radius: 6px;
   padding: 6px 12px;
   cursor: pointer;
   outline: none;
+  transition: border-color 0.2s;
 }
 
 #lang-select:hover {
@@ -97,42 +108,48 @@ a {
 }
 
 .hero__title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 5vw, 3.2rem);
   font-weight: 700;
   letter-spacing: -0.02em;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
+  color: var(--text);
 }
 
 .hero__subtitle {
-  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
   color: var(--text-muted);
-  max-width: 640px;
-  margin: 0 auto 48px;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
 }
 
 /* Stats */
 .stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  max-width: 640px;
+  gap: 20px;
+  max-width: 600px;
   margin: 0 auto;
+  padding: 24px 32px;
+  background: var(--accent-subtle);
+  border-radius: 12px;
+  border: 1px solid var(--border);
 }
 
 .stat {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 2px;
 }
 
 .stat__value {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  color: var(--accent-light);
+  color: var(--accent);
 }
 
 .stat__label {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
 }
 
@@ -144,11 +161,11 @@ a {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(14, 17, 23, 0.9);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  padding: 16px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .filters .container {
@@ -161,7 +178,7 @@ a {
   font-family: var(--font);
   font-size: 14px;
   padding: 8px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-light);
   border-radius: 999px;
   background: transparent;
   color: var(--text-muted);
@@ -185,7 +202,8 @@ a {
    ======================================== */
 
 .apps {
-  padding: 48px 0 64px;
+  padding: 40px 0 56px;
+  background: var(--bg-alt);
 }
 
 .apps__grid {
@@ -199,19 +217,21 @@ a {
   display: flex;
   flex-direction: column;
   background: var(--bg-card);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-light);
   border-radius: 12px;
   padding: 24px;
-  transition: all 0.2s;
+  transition: all 0.25s ease;
   cursor: pointer;
   text-decoration: none;
   color: var(--text);
+  box-shadow: var(--shadow);
 }
 
 .app-card:hover {
   background: var(--bg-card-hover);
-  border-color: var(--accent-light);
-  transform: translateY(-2px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
 }
 
 .app-card__pain {
@@ -219,6 +239,23 @@ a {
   color: var(--text-muted);
   margin-bottom: 16px;
   line-height: 1.5;
+  padding-left: 12px;
+  border-left: 2px solid var(--border);
+}
+
+.app-card__source {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  margin-top: 4px;
+  font-style: italic;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.app-card__source:hover {
+  color: var(--accent);
+  text-decoration: underline;
 }
 
 .app-card__main {
@@ -234,8 +271,9 @@ a {
 }
 
 .app-card__name {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 600;
+  color: var(--text);
 }
 
 .app-card__footer {
@@ -248,25 +286,26 @@ a {
 }
 
 .app-card__libs {
-  font-size: 0.75rem;
-  color: var(--text-muted);
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  font-family: 'Space Mono', monospace;
 }
 
 .app-card__cta {
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--accent-light);
+  color: var(--accent);
   transition: color 0.2s;
 }
 
 .app-card:hover .app-card__cta {
-  color: #5eead4;
+  color: var(--accent-light);
 }
 
 /* Device Badges */
 .device-badge {
   display: inline-block;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   padding: 3px 10px;
   border-radius: 999px;
   font-weight: 500;
@@ -274,18 +313,19 @@ a {
 }
 
 .device-badge--mobile {
-  background: rgba(16, 185, 129, 0.15);
-  color: #34d399;
+  background: rgba(13, 148, 136, 0.1);
+  color: var(--accent);
 }
 
 .device-badge--desktop {
-  background: rgba(59, 130, 246, 0.15);
-  color: #60a5fa;
+  background: rgba(26, 54, 93, 0.08);
+  color: var(--text);
 }
 
 .device-badge--both {
-  background: rgba(139, 92, 246, 0.15);
-  color: #a78bfa;
+  background: rgba(13, 148, 136, 0.06);
+  color: var(--accent-light);
+  border: 1px solid var(--border);
 }
 
 /* Card hidden state for filter */
@@ -298,20 +338,21 @@ a {
    ======================================== */
 
 .research {
-  background: var(--bg-card);
-  padding: 64px 0;
+  background: var(--bg);
+  padding: 56px 0;
+  border-top: 1px solid var(--border-light);
 }
 
 .research h2 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
+  color: var(--text);
 }
 
 .research p {
   color: var(--text-muted);
-  max-width: 720px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.8;
   margin-bottom: 24px;
 }
@@ -322,13 +363,13 @@ a {
 }
 
 .research__links a {
-  color: var(--accent-light);
+  color: var(--accent);
   font-weight: 600;
   transition: color 0.2s;
 }
 
 .research__links a:hover {
-  color: #5eead4;
+  color: var(--accent-light);
 }
 
 /* ========================================
@@ -336,19 +377,20 @@ a {
    ======================================== */
 
 .footer {
-  padding: 32px 0;
+  padding: 28px 0;
   text-align: center;
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--text-faint);
+  border-top: 1px solid var(--border-light);
 }
 
 .footer a {
-  color: var(--accent-light);
+  color: var(--accent);
   font-weight: 600;
 }
 
 .footer a:hover {
-  color: #5eead4;
+  color: var(--accent-light);
 }
 
 /* ========================================
@@ -363,12 +405,17 @@ a {
 
 @media (max-width: 600px) {
   .hero {
-    padding: 40px 0 32px;
+    padding: 32px 0 28px;
   }
 
   .stats {
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 16px;
+    padding: 20px 24px;
+  }
+
+  .stat__value {
+    font-size: 1.5rem;
   }
 
   .apps__grid {
@@ -376,10 +423,10 @@ a {
   }
 
   .apps {
-    padding: 32px 0 48px;
+    padding: 28px 0 40px;
   }
 
   .research {
-    padding: 48px 0;
+    padding: 40px 0;
   }
 }
