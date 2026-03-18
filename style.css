@@ -276,6 +276,26 @@ a {
   color: var(--text);
 }
 
+.app-card__solve {
+  font-size: 0.82rem;
+  color: var(--text);
+  line-height: 1.5;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  background: var(--accent-subtle);
+  border-radius: 6px;
+}
+
+.app-card__level {
+  margin-bottom: 12px;
+}
+
+.app-card__dots {
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  color: var(--accent);
+}
+
 .app-card__footer {
   display: flex;
   align-items: center;
