@@ -1,1 +1,6 @@
 .vercel
+
+# 環境変数・シークレット
+.env
+.env.*
+!.env.example
